@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+const { hashPassword, verifyPassword } = require('../lib/password');
+
 const userSchema = new mongoose.Schema({
     name: {
         type: String,
@@ -29,6 +31,18 @@ const userSchema = new mongoose.Schema({
         type: Number,
     },
 });
+
+userSchema.pre('save', function () {
+    if (!this.isModified('password')) return;
+
+    return hashPassword(this.password).then((hashed) => {
+        this.password = hashed;
+    });
+});
+
+userSchema.methods.comparePassword = function (plainPassword) {
+    return verifyPassword(plainPassword, this.password);
+};
 
 const User = mongoose.model('User', userSchema);
 

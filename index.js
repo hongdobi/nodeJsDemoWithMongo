@@ -32,4 +32,32 @@ app.post('/register', (req, res) => {
         return res.json({ success: false, err });
     });
 });
+
+app.post('/login', (req, res) => {
+    const body = req.body || {};
+    const email = body.email;
+    const password = body.password;
+
+    if (!email || !password) {
+        return res.status(400).json({ success: false, message: 'email and password are required' });
+    }
+
+    return User.findOne({ email })
+        .then((user) => {
+            if (!user) {
+                return res.status(401).json({ success: false, message: 'Invalid credentials' });
+            }
+
+            return user.comparePassword(password).then((ok) => {
+                if (!ok) {
+                    return res.status(401).json({ success: false, message: 'Invalid credentials' });
+                }
+
+                return res.status(200).json({ success: true });
+            });
+        })
+        .catch((err) => {
+            return res.status(500).json({ success: false, err });
+        });
+});
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
