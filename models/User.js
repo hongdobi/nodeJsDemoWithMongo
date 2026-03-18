@@ -30,6 +30,12 @@ const userSchema = new mongoose.Schema({
     tokenExp: {
         type: Number,
     },
+    refreshTokenHash: {
+        type: String,
+    },
+    refreshTokenExp: {
+        type: Number,
+    },
 });
 
 userSchema.pre('save', function () {
