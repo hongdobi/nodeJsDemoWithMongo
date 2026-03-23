@@ -45,12 +45,12 @@ Node.js와 Express 기반의 인증 시스템을 구현한 백엔드 프로젝�
 
 ##[Authentication Flow]
 ```
-###<Security Highlight>
-- 비밀번호를 평문이 아닌 scrypt 해시로 저장
-- timingSafeEqual을 사용하여 타이밍 공격 방어
-- Refresh Token을 DB에 해싱 저장 (탈취 대비)
-- Refresh Token Rotation 적용
-- Access Token 짧은 만료 시간 설정 (15분)
+### <Security Highlight>
+   - 비밀번호를 평문이 아닌 scrypt 해시로 저장
+   - timingSafeEqual을 사용하여 타이밍 공격 방어
+   - Refresh Token을 DB에 해싱 저장 (탈취 대비)
+   - Refresh Token Rotation 적용
+   - Access Token 짧은 만료 시간 설정 (15분)
 
 1. 로그인 성공 시
    - Access Token 발급 (15분)
