@@ -1,16 +1,6 @@
 ##[Project Overview]
 Node.js와 Express 기반의 인증 시스템을 구현한 백엔드 프로젝트입니다.
 
-```
-단순 로그인 기능이 아니, 보안성을 고려하여:
-- 비밀번호 안전 저장(Crypto.scrypt)
-- JWT 기반 인증(access token + refresh token)
-- Refresh Token Rotation(1회 사용후 폐기 -> 재발급)
-- 토큰 위조 및 타이밍 공격 방어
-
-등을 직접 구현했습니다.
-```
-
 ##[Tech Stack]
 ```
 - Node.js
