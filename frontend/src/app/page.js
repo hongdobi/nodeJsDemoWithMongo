@@ -1,63 +1,31 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.js file.</h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <div className="min-h-screen bg-zinc-50 text-zinc-950">
+      <main className="mx-auto flex min-h-screen max-w-5xl flex-col justify-center px-6 py-16">
+        <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-emerald-700">
+          Node.js Demo With Mongo
+        </p>
+        <h1 className="max-w-3xl text-4xl font-bold tracking-normal sm:text-5xl">
+          Next.js frontend is ready for the authentication API.
+        </h1>
+        <p className="mt-6 max-w-2xl text-lg leading-8 text-zinc-700">
+          This app will connect to the Express backend for registration, login,
+          token refresh, logout, and protected user profile requests.
+        </p>
+        <div className="mt-10 flex flex-wrap gap-3">
+          <Link
+            className="rounded-md bg-zinc-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-zinc-800"
+            href="/"
           >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
+            Frontend Home
+          </Link>
           <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            className="rounded-md border border-zinc-300 px-5 py-3 text-sm font-semibold text-zinc-900 transition hover:border-zinc-500"
+            href="http://localhost:5000"
           >
-            Documentation
+            Backend API
           </a>
         </div>
       </main>
