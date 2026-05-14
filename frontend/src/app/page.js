@@ -73,7 +73,7 @@ export default function Home() {
               type={showPassword ? "text" : "password"}
               value={form.password}
               onChange={handleChange}
-              placeholder="************"
+              placeholder="password"
               autoComplete="current-password"
               required
             />
@@ -111,7 +111,7 @@ export default function Home() {
 
           {message ? (
             <>
-              <div className="h-3" aria-hidden="true" />
+              <div className="h-2" aria-hidden="true" />
               <p className="border border-white/20 bg-white/10 px-3 py-2 text-center text-xs font-medium text-white backdrop-blur">
                 {message}
               </p>
